@@ -71,7 +71,9 @@ function parsePyprojectDeps(repo: RepoName, root: string): FloorPinRow[] {
     if (/^\]\s*$/.test(line)) break;
     // Match the package name + version spec inside quotes; the spec
     // may legitimately contain commas + < > = ~ ! characters.
-    const m = line.match(/['"]([A-Za-z0-9_.\-]+)(\[[^\]]*\])?([<>=!~,][^'"]*)?['"]/);
+    const m = line.match(
+      /['"]([A-Za-z0-9_.\-]+)(\[[^\]]*\])?([<>=!~,][^'"]*)?['"]/,
+    );
     if (m?.[1]) {
       const name = m[1].trim();
       const spec = (m[3] ?? "").trim() || "(unpinned)";
