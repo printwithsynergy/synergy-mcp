@@ -24,6 +24,6 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install semgrep
-        run: pip install semgrep
+        run: pip install semgrep==1.165.0
       - name: Semgrep scan
         run: semgrep scan --error --config p/security-audit --config p/secrets --config p/javascript --config p/typescript src
