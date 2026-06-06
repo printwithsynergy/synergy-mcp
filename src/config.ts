@@ -56,8 +56,14 @@ export const PROD_URLS: Record<RepoName, string | null> = {
   "compile-pdf":
     process.env.SYNERGY_MCP_URL_COMPILE_PDF ?? "https://compilepdf.com",
   "lens-pdf": null, // npm library — no prod URL
-  synergy: process.env.SYNERGY_MCP_URL_SYNERGY ?? null,
-  platform: process.env.SYNERGY_MCP_URL_PLATFORM ?? null,
+  // synergy + platform are now live (jwt-only auth cutover complete); default
+  // to their prod URLs so stack_health_grid probes them out of the box.
+  synergy:
+    process.env.SYNERGY_MCP_URL_SYNERGY ??
+    "https://synergy-api-production.up.railway.app",
+  platform:
+    process.env.SYNERGY_MCP_URL_PLATFORM ??
+    "https://platform.printwithsynergy.com",
 };
 
 /**
