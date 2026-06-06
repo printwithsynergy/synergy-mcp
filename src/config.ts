@@ -59,8 +59,11 @@ export const PROD_URLS: Record<RepoName, string | null> = {
   // synergy + platform are now live (jwt-only auth cutover complete); default
   // to their prod URLs so stack_health_grid probes them out of the box.
   synergy:
-    process.env.SYNERGY_MCP_URL_SYNERGY ?? "https://synergy-api-production.up.railway.app",
-  platform: process.env.SYNERGY_MCP_URL_PLATFORM ?? "https://platform.printwithsynergy.com",
+    process.env.SYNERGY_MCP_URL_SYNERGY ??
+    "https://synergy-api-production.up.railway.app",
+  platform:
+    process.env.SYNERGY_MCP_URL_PLATFORM ??
+    "https://platform.printwithsynergy.com",
 };
 
 /**
